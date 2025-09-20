@@ -1,0 +1,13 @@
+services:
+  samba:
+    image: crazymax/samba
+    container_name: samba
+    network_mode: host
+    volumes:
+      - "/home/matt/docker/samba/data:/data"
+      - "/mnt/samba_share/public:/samba/public"
+      - "/mnt/samba_share/data:/samba/data"
+    environment:
+      - "TZ=Europe/Paris"
+      - "SAMBA_LOG_LEVEL=0"
+    restart: always

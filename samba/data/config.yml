@@ -1,0 +1,19 @@
+auth:
+  - user: admin
+    group: admin
+    uid: 1000
+    gid: 1000
+    password: admin
+
+global:
+  - "force user = nobody"
+  - "force group = nogroup"
+  - "allow hosts = 0.0.0.0/0"
+
+share:
+  - name: data
+    path: /samba/data
+    browsable: yes
+    readonly: no
+    guestok: yes
+    veto: no
