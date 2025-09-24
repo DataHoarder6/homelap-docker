@@ -1,0 +1,58 @@
+version: "3.3"
+
+services:
+  backup:
+    image: mazzolino/restic
+    hostname: docker
+    restart: unless-stopped
+    environment:
+      RUN_ON_STARTUP: "true"
+      BACKUP_CRON: "0 30 3 * * *"
+      RESTIC_REPOSITORY: rclone:gdrive:/restic
+      RESTIC_PASSWORD: supersecret
+      RESTIC_BACKUP_SOURCES: /data
+      RESTIC_BACKUP_ARGS: >-
+        --tag docker-volumes
+        --exclude some-folder/cache
+        --exclude another-folder/with\ space
+        --exclude *.tmp
+        --verbose
+      RESTIC_FORGET_ARGS: >-
+        --keep-last 10
+        --keep-daily 7
+        --keep-weekly 5
+        --keep-monthly 12
+      TZ: Europe/Berlin
+    volumes:
+      - /mnt/samba_share/data/saugus:/data:ro
+      - ./rclone.conf:/run/secrets/rclone.conf:ro
+
+  prune:
+    image: mazzolino/restic
+    hostname: docker
+    restart: unless-stopped
+    environment:
+      SKIP_INIT: "true"
+      RUN_ON_STARTUP: "true"
+      PRUNE_CRON: "0 0 4 * * *"
+      RESTIC_REPOSITORY: rclone:gdrive:/restic
+      RESTIC_PASSWORD: supersecret
+      TZ: Europe/Berlin
+    volumes:
+      - ./rclone.conf:/run/secrets/rclone.conf:ro
+
+  check:
+    image: mazzolino/restic
+    hostname: docker
+    restart: unless-stopped
+    environment:
+      SKIP_INIT: "true"
+      RUN_ON_STARTUP: "false"
+      CHECK_CRON: "0 15 5 * * *"
+      RESTIC_CHECK_ARGS: >-
+        --read-data-subset=10%
+      RESTIC_REPOSITORY: rclone:gdrive:/restic
+      RESTIC_PASSWORD: supersecret
+      TZ: Europe/Berlin
+    volumes:
+      - ./rclone.conf:/run/secrets/rclone.conf:ro
