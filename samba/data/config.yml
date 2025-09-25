@@ -6,8 +6,8 @@ auth:
     password: admin
 
 global:
-  - "force user = nobody"
-  - "force group = nogroup"
+  - "force user = 1000"
+  - "force group = 1000"
   - "allow hosts = 0.0.0.0/0"
 
 share:
