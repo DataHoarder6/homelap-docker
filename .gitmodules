@@ -1,0 +1,6 @@
+[submodule "alarm-mqtt-client"]
+	path = alarm-mqtt-client
+	url = https://github.com/DataHoarder6/alarm-mqtt-client
+[submodule "rtsp-audio-monitor"]
+	path = rtsp-audio-monitor
+	url = https://github.com/DataHoarder6/rtsp-audio-monitor.git
