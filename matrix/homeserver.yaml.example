@@ -1,0 +1,34 @@
+server_name: "jautis.lt"
+enable_registration: false
+public_baseurl: "https://matrix.jautis.lt"
+pid_file: /data/homeserver.pid
+
+listeners:
+  - port: 8008
+    resources:
+    - compress: false
+      names:
+      - client
+      - federation
+    tls: false
+    type: http
+    x_forwarded: true
+
+database:
+  name: sqlite3
+  args:
+    database: /data/homeserver.db
+
+log_config: "/data/homeserver.log.config"
+media_store_path: /data/media_store
+registration_shared_secret: "CHANGEME"
+report_stats: true
+macaroon_secret_key: "CHANGEME"
+form_secret: "CHANGEME"
+signing_key_path: "/data/signing.key"
+
+app_service_config_files:
+  - /data/mautrix-meta-registration.yaml
+
+trusted_key_servers:
+  - server_name: "matrix.org"

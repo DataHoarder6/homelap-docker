@@ -12,3 +12,6 @@ caddy/config/
 .DS_Store
 Thumbs.db
 backrest/backrest/rclone/
+# Environment files
+*.env
+**/.env
