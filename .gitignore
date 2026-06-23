@@ -11,3 +11,4 @@ caddy/config/
 # OS files
 .DS_Store
 Thumbs.db
+backrest/backrest/rclone/
