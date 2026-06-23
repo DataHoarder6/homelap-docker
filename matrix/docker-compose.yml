@@ -1,0 +1,25 @@
+version: '3.3'
+
+services:
+  synapse:
+    container_name: synapse
+    image: matrixdotorg/synapse:latest
+    restart: always
+    volumes:
+      - ./data:/data
+    networks:
+      - default
+      - homelab
+
+  mautrix-meta:
+    container_name: mautrix-meta
+    image: dock.mau.dev/mautrix/meta:latest
+    restart: unless-stopped
+    volumes:
+      - ./mautrix-meta:/data
+    networks:
+      - default
+
+networks:
+  homelab:
+    external: true

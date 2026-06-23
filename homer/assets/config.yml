@@ -1,0 +1,50 @@
+---
+title: "Homelab"
+subtitle: "jautis.lt"
+header: false
+footer: false
+theme: default
+colors:
+  light:
+    highlight: "#2d7ee7"
+  dark:
+    highlight: "#2d7ee7"
+
+services:
+  - name: "Media"
+    icon: "fas fa-photo-video"
+    items:
+      - name: "Calibre Web"
+        icon: "fas fa-book"
+        subtitle: "eBook library"
+        url: "http://192.168.8.16:8083"
+        target: "_blank"
+      - name: "Calibre"
+        icon: "fas fa-book-open"
+        subtitle: "eBook management"
+        url: "http://192.168.8.16:8080"
+        target: "_blank"
+      - name: "qBittorrent"
+        icon: "fas fa-download"
+        subtitle: "Torrent client"
+        url: "http://192.168.8.16:9092"
+        target: "_blank"
+
+  - name: "Infrastructure"
+    icon: "fas fa-server"
+    items:
+      - name: "Matrix"
+        icon: "fas fa-comments"
+        subtitle: "Chat"
+        url: "https://matrix.jautis.lt"
+        target: "_blank"
+      - name: "Backrest"
+        icon: "fas fa-database"
+        subtitle: "Backups"
+        url: "http://192.168.8.16:9898"
+        target: "_blank"
+      - name: "Samba Share"
+        icon: "fas fa-folder-open"
+        subtitle: "File sharing"
+        url: "smb://192.168.8.16"
+        target: "_blank"

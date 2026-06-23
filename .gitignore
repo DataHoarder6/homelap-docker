@@ -1,0 +1,13 @@
+# Secrets and data
+matrix/data/
+matrix/mautrix-meta/
+caddy/data/
+caddy/config/
+# Databases
+*.db
+*.db-*
+# Logs
+*.log
+# OS files
+.DS_Store
+Thumbs.db

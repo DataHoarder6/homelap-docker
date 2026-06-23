@@ -1,0 +1,3 @@
+matrix.jautis.lt {
+    reverse_proxy synapse:8008
+}

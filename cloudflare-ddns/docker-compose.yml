@@ -22,7 +22,7 @@ services:
     environment:
       - CLOUDFLARE_API_TOKEN=fOMLhhAnAzCN-IUjyzuLh1hw5MMwq69spJWSjyZY
         # Your Cloudflare API token
-      - DOMAINS=nadruvos.jautis.lt
+      - DOMAINS=nadruvos.jautis.lt,matrix.jautis.lt
         # Your domains (separated by commas)
       - PROXIED=false
         # Tell Cloudflare to cache webpages and hide your IP (optional)

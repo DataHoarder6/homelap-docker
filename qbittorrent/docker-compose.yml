@@ -11,7 +11,6 @@ services:
     volumes:
       - /home/matt/docker/qbittorrent/config:/config
       - /mnt/samba_share/data:/data
-      - /mnt:/mnt
     ports:
       - 9092:9092
       - 6881:6881
